@@ -29,6 +29,9 @@ boolean lastButton = HIGH;
 // This var decides how many empty lines are printed after the prompt. Change according to the box the printer is put in
 int endPadding = 4;
 
+// This var decides how many lines will be between each section. One section consisting of a category and the content of that category. 
+int sectionPadding = 1;
+
 // These two vars sets the size of the category names and the contents. 'L' for large, 'M' for medium and 'S' for small
 char categorySize = 'M';
 char contentSize = 'S';
@@ -71,6 +74,7 @@ void printText() {
   if (arc1State || arc2State) {
     printer.setSize(categorySize);
     printer.println("Arc");
+
     printer.setSize(contentSize);
     if (arc1State) {
       printer.println(arc1);
@@ -78,32 +82,41 @@ void printText() {
     if (arc2State) {
       printer.println(arc2);
     }
+
+    printer.feed(sectionPadding);
   }
 
   if (terrainState) {
-    printer.feed(1);
 
     printer.setSize(categorySize);
     printer.println("Terrain");
-    printer.setSize(contentSize);
 
+    printer.setSize(contentSize);
     printer.println(terrain);
+
+    printer.feed(sectionPadding);
+
   }
 
   if (objectState) {
-    printer.feed(1);
     printer.setSize(categorySize);
     printer.println("Object");
+
     printer.setSize(contentSize);
     printer.println(object);
+
+    printer.feed(sectionPadding);
+
   }
 
   if (moodState) {
-    printer.feed(1);
     printer.setSize(categorySize);
     printer.println("Mood");
+
     printer.setSize(contentSize);
     printer.println(mood);
+    
+    printer.feed(sectionPadding);
   }
 
   if (!arc1State && !arc2State && !terrainState && !objectState && !moodState) {
@@ -111,6 +124,4 @@ void printText() {
     printer.println("There is no future");
   }
   printer.feed(endPadding);
-
-
 }
