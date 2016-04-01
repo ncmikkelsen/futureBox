@@ -17,10 +17,9 @@ String moodList[] = {"admiration", "alienation", "amusement", "anger", "anxiety"
 
 // The physical switches goes from these to a ground on the middle leg of the switch
 int arc1Switch = 22;
-int arc2Switch = 23;
-int terrainSwitch = 24;
-int objectSwitch = 25;
-int moodSwitch = 26;
+int arc2Switch = 24;
+int terrainSwitch = 26;
+int objectSwitch = 28;
 
 // Buttons go from here to ground
 int printButton = 3;
@@ -75,11 +74,12 @@ void printText() {
   String object = objectList[random(57)];
   String mood = moodList[random(54)];
 
-  boolean arc1State = digitalRead(arc1Switch);
-  boolean arc2State = digitalRead(arc2Switch);
+  boolean arc1State = !digitalRead(arc1Switch);
+  boolean arc2State = !digitalRead(arc2Switch);
+  //The logic is inverted here because of a faulty switch. Should be changed back when a proper box is built.
   boolean terrainState = digitalRead(terrainSwitch);
-  boolean objectState = digitalRead(objectSwitch);
-  boolean moodState = digitalRead(moodSwitch);
+  boolean objectState = !digitalRead(objectSwitch);
+  boolean moodState = !digitalRead(moodSwitch);
 
   if (arc1State || arc2State) {
     printer.setSize(categorySize);
@@ -138,26 +138,27 @@ void printText() {
 
 void printHelp(){
   printer.setSize('M');
-  printer.println("What is this strange device?")
+  printer.println("What is this strange device?");
   printer.setSize('S');
-  printer.println("This little box knows all possible future.")
-  printer.println("When you push the button it will vaguely describe a thing from the future.")
-  printer.println("It is up to you to describe the thing and what it means in this future.")
+  printer.println("This little box knows all\npossible futures.");
+  printer.println("When you push the button it will\nvaguely describe a thing from \nthe future.");
+  printer.println("It is up to you to describe this\nthing.");
   printer.boldOn();
   printer.println("Arc");
   printer.boldOff();
-  printer.println("The arc indicates a broad trajectory of how the future will develop and a time horizon telling you how far into the future you must look");
+  printer.println("The arc indicates a broad\ntrajectory of how the future \nwill develop and a time horizon\ntelling you how far into the \nfuture you must look.");
   printer.boldOn();  
   printer.println("Terrain");
   printer.boldOff();
-  printer.println("Terrain describes contexts, places, and topic areas. The terrain describes where – physically or conceptually – the thing from the future might be found.");
+  printer.println("Terrain describes contexts,\nplaces, and topic areas. \nThe terrain describes where, \nphysically or conceptually, \nthe thing from the future might be found.");
   printer.boldOn();
   printer.println("Object");
   printer.boldOff();
-  printer.println("This is the basic form of the thing from the future.");
+  printer.println("This is the basic form of the \nthing from the future.");
   printer.boldOn();
   printer.println("Mood");
   printer.boldOff();
-  printer.println("The emotions the thing from the future might evoke in an observer from the present.");
+  printer.println("The emotions the thing from the future might evoke in an\nobserver from the present.");
 
+  printer.feed(endPadding);
 }
