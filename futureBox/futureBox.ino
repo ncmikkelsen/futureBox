@@ -16,11 +16,11 @@ String objectList[] = {"advertisement", "artwork", "beverage", "book", "bottle",
 String moodList[] = {"admiration", "alienation", "amusement", "anger", "anxiety", "awkwardness", "calm", "charm", "cheer", "contentment", "curiosity", "decadence", "delight", "dignity", "disgust", "dread", "embarrassment", "excitement", "exhilaration", "fascination", "fervor", "frustration", "gratitude", "happiness", "hilarity", "hope", "longing", "malaise", "melancholy", "melodrama", "nostalgia", "optimism", "outrage", "pathos", "pleasure", "pride", "rationality", "relief", "resentment", "respect", "sadness", "satisfaction", "serenity", "shame", "shock", "sorrow", "surprise", "unease", "warmth", "weirdness", "wellbeing", "wonder", "worry", "zen"};
 
 // The physical switches goes from these to a ground on the middle leg of the switch
-int arc1Switch = 22;
-int arc2Switch = 24;
+int arc1Switch = 30;
+int arc2Switch = 28;
 int terrainSwitch = 26;
-int objectSwitch = 28;
-int moodSwitch = 30;
+int objectSwitch = 24;
+int moodSwitch = 22;
 
 // Buttons go from here to ground
 int printButton = 3;
