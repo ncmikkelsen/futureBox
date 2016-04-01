@@ -22,9 +22,12 @@ int terrainSwitch = 24;
 int objectSwitch = 25;
 int moodSwitch = 26;
 
-// Button goes from here to ground
-int button = 3;
-boolean lastButton = HIGH;
+// Buttons go from here to ground
+int printButton = 3;
+int helpButton = 4;
+
+boolean lastPrintButton = HIGH;
+boolean lastHelpButton = HIGH;
 
 // This var decides how many empty lines are printed after the prompt. Change according to the box the printer is put in
 int endPadding = 4;
@@ -43,7 +46,8 @@ void setup() {
   pinMode(objectSwitch, INPUT_PULLUP);
   pinMode(moodSwitch, INPUT_PULLUP);
 
-  pinMode(button, INPUT_PULLUP);
+  pinMode(printButton, INPUT_PULLUP);
+  pinMode(helpButton, INPUT_PULLUP);
 
 
   mySerial.begin(19200);  // Initialize SoftwareSerial
@@ -51,11 +55,17 @@ void setup() {
 }
 
 void loop() {
-  int currentButton = digitalRead(button);
-  if (!currentButton && lastButton) {
+  int currentHelpButton = digitalRead(helpButton);
+  if(!currentHelpButton && lastHelpButton){
+    printHelp();
+  }
+  lastHelpButton = currentHelpButton;
+
+  int currentPrintButton = digitalRead(printButton);
+  if (!currentPrintButton && lastPrintButton) {
     printText();
   };
-  lastButton = currentButton;
+  lastPrintButton = currentPrintButton;
 }
 
 void printText() {
@@ -124,4 +134,30 @@ void printText() {
     printer.println("There is no future");
   }
   printer.feed(endPadding);
+}
+
+void printHelp(){
+  printer.setSize('M');
+  printer.println("What is this strange device?")
+  printer.setSize('S');
+  printer.println("This little box knows all possible future.")
+  printer.println("When you push the button it will vaguely describe a thing from the future.")
+  printer.println("It is up to you to describe the thing and what it means in this future.")
+  printer.boldOn();
+  printer.println("Arc");
+  printer.boldOff();
+  printer.println("The arc indicates a broad trajectory of how the future will develop and a time horizon telling you how far into the future you must look");
+  printer.boldOn();  
+  printer.println("Terrain");
+  printer.boldOff();
+  printer.println("Terrain describes contexts, places, and topic areas. The terrain describes where – physically or conceptually – the thing from the future might be found.");
+  printer.boldOn();
+  printer.println("Object");
+  printer.boldOff();
+  printer.println("This is the basic form of the thing from the future.");
+  printer.boldOn();
+  printer.println("Mood");
+  printer.boldOff();
+  printer.println("The emotions the thing from the future might evoke in an observer from the present.");
+
 }
