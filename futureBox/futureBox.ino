@@ -20,6 +20,7 @@ int arc1Switch = 22;
 int arc2Switch = 24;
 int terrainSwitch = 26;
 int objectSwitch = 28;
+int moodSwitch = 30;
 
 // Buttons go from here to ground
 int printButton = 3;
