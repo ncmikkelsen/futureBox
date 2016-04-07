@@ -49,7 +49,8 @@ void setup() {
   pinMode(printButton, INPUT_PULLUP);
   pinMode(helpButton, INPUT_PULLUP);
 
-
+  randomSeed(analogRead(A0));
+  
   mySerial.begin(19200);  // Initialize SoftwareSerial
   printer.begin();        // Init printer (same regardless of serial
 }
