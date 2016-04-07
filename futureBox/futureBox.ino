@@ -83,6 +83,7 @@ void printText() {
   boolean objectState = !digitalRead(objectSwitch);
   boolean moodState = !digitalRead(moodSwitch);
 
+  printer.feed(1);
   if (arc1State || arc2State) {
     printer.setSize(categorySize);
     printer.println("Arc");
