@@ -9,7 +9,7 @@ Adafruit_Thermal printer(&mySerial);     // Pass addr to printer constructor
 
 
 
-String arc1List[] progmem = {"collapse", "discipline", "grow", "transform"};
+String arc1List[] = {"collapse", "discipline", "grow", "transform"};
 String arc2List[] = {"a few years", "a decade", "a generation", "two generations", "a century", "a millennium"};
 String terrainList[] = {"agriculture", "the brain", "childhood", "citizenship", "class", "climate", "cloning", "communications", "court", "disease", "drones", "the economy", "education", "entertainment", "environment", "equality", "family", "fashion", "flight", "forests", "genetics", "gender", "governance", "health", "hobbies", "home", "identity", "insects", "intellectual property", "journalism", "justice", "learning", "memory", "mining", "the moon", "music", "oceans", "oil", "old age", "pets", "power", "religion", "robots", "sex", "shopping", "space", "sports", "theatre", "travel", "war", "water", "wealth", "women", "work", "zombies", "the zoo", "wildcard (topic or location of your choice)"};
 String objectList[] = {"advertisement", "artwork", "beverage", "book", "bottle", "box", "brochure", "building", "candy", "clothing", "corporation", "device", "document", "event", "festival", "flag", "game", "gift", "headline", "implant", "instrument", "jewellery", "kit", "law", "logo", "lotion", "machine", "magazine cover", "map", "mask", "monument", "passport", "pill", "plant", "postcard", "poster", "product", "prosthetic", "public service announcement", "relic", "ritual", "show", "slogan", "snack", "song", "souvenir", "statue", "sticker", "symbol", "t-shirt", "tattoo", "tool", "toy", "vehicle", "video", "weapon", "wildcard (artifact of your choice)"};
