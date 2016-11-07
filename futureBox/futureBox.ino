@@ -29,6 +29,9 @@ const int helpButton = 4;
 boolean lastPrintButton = HIGH;
 boolean lastHelpButton = HIGH;
 
+// This var decides how many empty lines are printed before the promt.
+int startPadding = 1;
+
 // This var decides how many empty lines are printed after the prompt. Change according to the box the printer is put in
 int endPadding = 4;
 
@@ -83,7 +86,7 @@ void printText() {
   boolean objectState = !digitalRead(objectSwitch);
   boolean moodState = !digitalRead(moodSwitch);
 
-  printer.feed(1);
+  printer.feed(startPadding);
   if (arc1State || arc2State) {
     printer.setSize(categorySize);
     printer.println("Arc");
@@ -140,6 +143,7 @@ void printText() {
 }
 
 void printHelp(){
+  printer.feed(startPadding);
   printer.setSize('M');
   printer.println("What is this strange device?");
   printer.setSize('S');
