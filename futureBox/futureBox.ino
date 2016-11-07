@@ -30,17 +30,17 @@ boolean lastPrintButton = HIGH;
 boolean lastHelpButton = HIGH;
 
 // This var decides how many empty lines are printed before the promt.
-int startPadding = 1;
+const int startPadding = 1;
 
 // This var decides how many empty lines are printed after the prompt. Change according to the box the printer is put in
-int endPadding = 4;
+const int endPadding = 4;
 
 // This var decides how many lines will be between each section. One section consisting of a category and the content of that category.
-int sectionPadding = 1;
+const int sectionPadding = 1;
 
 // These two vars sets the size of the category names and the contents. 'L' for large, 'M' for medium and 'S' for small
-char categorySize = 'M';
-char contentSize = 'S';
+const char categorySize = 'M';
+const char contentSize = 'S';
 
 void setup() {
   pinMode(arc1Switch, INPUT_PULLUP);
