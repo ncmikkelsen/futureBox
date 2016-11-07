@@ -59,13 +59,13 @@ void setup() {
 }
 
 void loop() {
-  int currentHelpButton = digitalRead(helpButton);
+  boolean currentHelpButton = digitalRead(helpButton);
   if(!currentHelpButton && lastHelpButton){
     printHelp();
   }
   lastHelpButton = currentHelpButton;
 
-  int currentPrintButton = digitalRead(printButton);
+  boolean currentPrintButton = digitalRead(printButton);
   if (!currentPrintButton && lastPrintButton) {
     printText();
   };
