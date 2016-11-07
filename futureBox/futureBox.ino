@@ -9,7 +9,7 @@ Adafruit_Thermal printer(&mySerial);     // Pass addr to printer constructor
 
 
 
-String arc1List[] = {"collapse", "discipline", "grow", "transform"};
+String arc1List[] progmem = {"collapse", "discipline", "grow", "transform"};
 String arc2List[] = {"a few years", "a decade", "a generation", "two generations", "a century", "a millennium"};
 String terrainList[] = {"agriculture", "the brain", "childhood", "citizenship", "class", "climate", "cloning", "communications", "court", "disease", "drones", "the economy", "education", "entertainment", "environment", "equality", "family", "fashion", "flight", "forests", "genetics", "gender", "governance", "health", "hobbies", "home", "identity", "insects", "intellectual property", "journalism", "justice", "learning", "memory", "mining", "the moon", "music", "oceans", "oil", "old age", "pets", "power", "religion", "robots", "sex", "shopping", "space", "sports", "theatre", "travel", "war", "water", "wealth", "women", "work", "zombies", "the zoo", "wildcard (topic or location of your choice)"};
 String objectList[] = {"advertisement", "artwork", "beverage", "book", "bottle", "box", "brochure", "building", "candy", "clothing", "corporation", "device", "document", "event", "festival", "flag", "game", "gift", "headline", "implant", "instrument", "jewellery", "kit", "law", "logo", "lotion", "machine", "magazine cover", "map", "mask", "monument", "passport", "pill", "plant", "postcard", "poster", "product", "prosthetic", "public service announcement", "relic", "ritual", "show", "slogan", "snack", "song", "souvenir", "statue", "sticker", "symbol", "t-shirt", "tattoo", "tool", "toy", "vehicle", "video", "weapon", "wildcard (artifact of your choice)"};
@@ -89,7 +89,7 @@ void printText() {
   printer.feed(startPadding);
   if (arc1State || arc2State) {
     printer.setSize(categorySize);
-    printer.println("Arc");
+    printer.println(F("Arc"));
 
     printer.setSize(contentSize);
     if (arc1State) {
@@ -105,7 +105,7 @@ void printText() {
   if (terrainState) {
 
     printer.setSize(categorySize);
-    printer.println("Terrain");
+    printer.println(F("Terrain"));
 
     printer.setSize(contentSize);
     printer.println(terrain);
@@ -116,7 +116,7 @@ void printText() {
 
   if (objectState) {
     printer.setSize(categorySize);
-    printer.println("Object");
+    printer.println(F("Object"));
 
     printer.setSize(contentSize);
     printer.println(object);
@@ -127,7 +127,7 @@ void printText() {
 
   if (moodState) {
     printer.setSize(categorySize);
-    printer.println("Mood");
+    printer.println(F("Mood"));
 
     printer.setSize(contentSize);
     printer.println(mood);
@@ -137,7 +137,7 @@ void printText() {
 
   if (!arc1State && !arc2State && !terrainState && !objectState && !moodState) {
     printer.setSize('M');
-    printer.println("There is no future");
+    printer.println(F("There is no future"));
   }
   printer.feed(endPadding);
 }
@@ -145,27 +145,27 @@ void printText() {
 void printHelp(){
   printer.feed(startPadding);
   printer.setSize('M');
-  printer.println("What is this strange device?");
+  printer.println(F("What is this strange device?"));
   printer.setSize('S');
-  printer.println("This little box knows all\npossible futures.");
-  printer.println("When you push the button it will\nvaguely describe a thing from \nthe future.");
-  printer.println("It is up to you to describe this\nthing.");
+  printer.println(F("This little box knows all\npossible futures."));
+  printer.println(F("When you push the button it will\nvaguely describe a thing from \nthe future."));
+  printer.println(F("It is up to you to describe this\nthing."));
   printer.boldOn();
-  printer.println("Arc");
+  printer.println(F("Arc"));
   printer.boldOff();
-  printer.println("The arc indicates a broad\ntrajectory of how the future \nwill develop and a time horizon\ntelling you how far into the \nfuture you must look.");
+  printer.println(F("The arc indicates a broad\ntrajectory of how the future \nwill develop and a time horizon\ntelling you how far into the \nfuture you must look."));
   printer.boldOn();
-  printer.println("Terrain");
+  printer.println(F("Terrain"));
   printer.boldOff();
-  printer.println("Terrain describes contexts,\nplaces, and topic areas. \nThe terrain describes where, \nphysically or conceptually, \nthe thing from the future might be found.");
+  printer.println(F("Terrain describes contexts,\nplaces, and topic areas. \nThe terrain describes where, \nphysically or conceptually, \nthe thing from the future might be found."));
   printer.boldOn();
-  printer.println("Object");
+  printer.println(F("Object"));
   printer.boldOff();
-  printer.println("This is the basic form of the \nthing from the future.");
+  printer.println(F("This is the basic form of the \nthing from the future."));
   printer.boldOn();
-  printer.println("Mood");
+  printer.println(F("Mood"));
   printer.boldOff();
-  printer.println("The emotions the thing from the future might evoke in an\nobserver from the present.");
+  printer.println(F("The emotions the thing from the future might evoke in an\nobserver from the present."));
 
   printer.feed(endPadding);
 }
