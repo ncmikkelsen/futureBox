@@ -16,15 +16,15 @@ String objectList[] = {"advertisement", "artwork", "beverage", "book", "bottle",
 String moodList[] = {"admiration", "alienation", "amusement", "anger", "anxiety", "awkwardness", "calm", "charm", "cheer", "contentment", "curiosity", "decadence", "delight", "dignity", "disgust", "dread", "embarrassment", "excitement", "exhilaration", "fascination", "fervor", "frustration", "gratitude", "happiness", "hilarity", "hope", "longing", "malaise", "melancholy", "melodrama", "nostalgia", "optimism", "outrage", "pathos", "pleasure", "pride", "rationality", "relief", "resentment", "respect", "sadness", "satisfaction", "serenity", "shame", "shock", "sorrow", "surprise", "unease", "warmth", "weirdness", "wellbeing", "wonder", "worry", "zen"};
 
 // The physical switches goes from these to a ground on the middle leg of the switch
-int arc1Switch = 30;
-int arc2Switch = 28;
-int terrainSwitch = 26;
-int objectSwitch = 24;
-int moodSwitch = 22;
+const int arc1Switch = 30;
+const int arc2Switch = 28;
+const int terrainSwitch = 26;
+const int objectSwitch = 24;
+const int moodSwitch = 22;
 
 // Buttons go from here to ground
-int printButton = 3;
-int helpButton = 4;
+const int printButton = 3;
+const int helpButton = 4;
 
 boolean lastPrintButton = HIGH;
 boolean lastHelpButton = HIGH;
@@ -32,7 +32,7 @@ boolean lastHelpButton = HIGH;
 // This var decides how many empty lines are printed after the prompt. Change according to the box the printer is put in
 int endPadding = 4;
 
-// This var decides how many lines will be between each section. One section consisting of a category and the content of that category. 
+// This var decides how many lines will be between each section. One section consisting of a category and the content of that category.
 int sectionPadding = 1;
 
 // These two vars sets the size of the category names and the contents. 'L' for large, 'M' for medium and 'S' for small
@@ -50,7 +50,7 @@ void setup() {
   pinMode(helpButton, INPUT_PULLUP);
 
   randomSeed(analogRead(A0));
-  
+
   mySerial.begin(19200);  // Initialize SoftwareSerial
   printer.begin();        // Init printer (same regardless of serial
 }
@@ -128,7 +128,7 @@ void printText() {
 
     printer.setSize(contentSize);
     printer.println(mood);
-    
+
     printer.feed(sectionPadding);
   }
 
@@ -150,7 +150,7 @@ void printHelp(){
   printer.println("Arc");
   printer.boldOff();
   printer.println("The arc indicates a broad\ntrajectory of how the future \nwill develop and a time horizon\ntelling you how far into the \nfuture you must look.");
-  printer.boldOn();  
+  printer.boldOn();
   printer.println("Terrain");
   printer.boldOff();
   printer.println("Terrain describes contexts,\nplaces, and topic areas. \nThe terrain describes where, \nphysically or conceptually, \nthe thing from the future might be found.");
