@@ -7,7 +7,7 @@
 SoftwareSerial mySerial(RX_PIN, TX_PIN); // Declare SoftwareSerial obj first
 Adafruit_Thermal printer(&mySerial);     // Pass addr to printer constructor
 
-// I'm a comment meant for testing commit messages in the ide and reverting with git
+
 
 String arc1List[] = {"collapse", "discipline", "grow", "transform"};
 String arc2List[] = {"a few years", "a decade", "a generation", "two generations", "a century", "a millennium"};
